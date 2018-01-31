@@ -26,5 +26,20 @@ do
     cp -r --parent $f $DESTINATION
 done
 
-# hack:
 cp -r $DRAKE_DIR/examples/humanoid_controller/config/ $DESTINATION/share/drake/examples/humanoid_controller/config
+
+SYSTEM_LIBS="/usr/lib/x86_64-linux-gnu/libprotobuf.so.9
+/usr/lib/x86_64-linux-gnu/libtinyxml2.so.2
+/usr/lib/libdreal.so
+/usr/lib/libibex.so
+/usr/lib/x86_64-linux-gnu/libClp.so.1
+/usr/lib/x86_64-linux-gnu/libCoinUtils.so.3
+/usr/lib/libipopt.so.1
+/usr/lib/libdmumps_seq-4.10.0.so
+/usr/lib/x86_64-linux-gnu/libnlopt.so.0
+/usr/lib/libmumps_common_seq-4.10.0.so"
+
+for lib in $SYSTEM_LIBS
+do
+    cp $lib $DESTINATION/lib
+done
